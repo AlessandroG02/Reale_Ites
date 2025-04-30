@@ -1,4 +1,3 @@
-// calculator.js
 const RealeCalculator = {
     calculatePremium: function(tipo, eta, valore, sinistri, copertura) {
       let moltiplicatore = 1.0;
