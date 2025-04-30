@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dashboard riassuntiva polizze Reale ITES"
+    />
+    <title>Reale ITES - Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link
+      rel="icon"
+      href="https://www.theofficialboard.fr/img/twitterCompanyBigImages/83350.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Reale ITES - Dashboard</h1>
+      <div class="user-info">
+        <span id="utente-corrente">Utente: </span>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img
+            src="https://www.theofficialboard.fr/img/twitterCompanyBigImages/83350.png"
+            alt="Logo Reale ITES"
+          />
+        </button>
+        <div class="dropdown-content">
+          <a href="polizza.html">
+            <i class="fas fa-calculator"></i> Simulatore
+          </a>
+          <a href="riconoscimenti.html">
+            <i class="fas fa-info-circle"></i> Riconoscimenti
+          </a>
+          <a href="index.html"> <i class="fas fa-sign-out-alt"></i> Esci </a>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="header-container">
+        <h1><i class="fas fa-tachometer-alt"></i> Dashboard Polizze</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="dashboard-container">
+        <section class="dashboard-summary">
+          <div class="stat-card">
+            <i class="fas fa-file-invoice"></i>
+            <h3>Simulazioni Totali</h3>
+            <div class="stat-value">12</div>
+            <div class="stat-description">Nel tuo account</div>
+          </div>
+
+          <div class="stat-card">
+            <i class="fas fa-euro-sign"></i>
+            <h3>Premio Medio</h3>
+            <div class="stat-value">€387.50</div>
+            <div class="stat-description">Su tutte le simulazioni</div>
+          </div>
+
+          <div class="stat-card">
+            <i class="fas fa-piggy-bank"></i>
+            <h3>Risparmio Potenziale</h3>
+            <div class="stat-value">€123.75</div>
+            <div class="stat-description">Tra max e min premio</div>
+          </div>
+
+          <div class="stat-card">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Ultima Simulazione</h3>
+            <div class="stat-value">21/04/2025</div>
+            <div class="stat-description">2 giorni fa</div>
+          </div>
+        </section>
+
+        <section class="insurance-types">
+          <div class="insurance-type">
+            <h3><i class="fas fa-car"></i> Polizze Auto</h3>
+            <ul class="insurance-features">
+              <li>
+                <i class="fas fa-calculator"></i> Simulazioni
+                <span class="feature-value">5</span>
+              </li>
+              <li>
+                <i class="fas fa-euro-sign"></i> Premio medio
+                <span class="feature-value">€450.30</span>
+              </li>
+              <li>
+                <i class="fas fa-shield-alt"></i> Anni senza sinistri medi
+                <span class="feature-value">3.2</span>
+              </li>
+              <li>
+                <i class="fas fa-percentage"></i> Risparmio max
+                <span class="feature-value">28%</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="insurance-type">
+            <h3><i class="fas fa-home"></i> Polizze Casa</h3>
+            <ul class="insurance-features">
+              <li>
+                <i class="fas fa-calculator"></i> Simulazioni
+                <span class="feature-value">4</span>
+              </li>
+              <li>
+                <i class="fas fa-euro-sign"></i> Premio medio
+                <span class="feature-value">€285.75</span>
+              </li>
+              <li>
+                <i class="fas fa-shield-alt"></i> Anni senza sinistri medi
+                <span class="feature-value">5.5</span>
+              </li>
+              <li>
+                <i class="fas fa-percentage"></i> Risparmio max
+                <span class="feature-value">22%</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="insurance-type">
+            <h3><i class="fas fa-heartbeat"></i> Polizze Vita</h3>
+            <ul class="insurance-features">
+              <li>
+                <i class="fas fa-calculator"></i> Simulazioni
+                <span class="feature-value">3</span>
+              </li>
+              <li>
+                <i class="fas fa-euro-sign"></i> Premio medio
+                <span class="feature-value">€520.00</span>
+              </li>
+              <li>
+                <i class="fas fa-shield-alt"></i> Anni senza sinistri medi
+                <span class="feature-value">2.0</span>
+              </li>
+              <li>
+                <i class="fas fa-percentage"></i> Risparmio max
+                <span class="feature-value">18%</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="recent-activity">
+          <h2><i class="fas fa-history"></i> Attività Recenti</h2>
+          <ul class="activity-list">
+            <li class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <div class="activity-details">
+                <div class="activity-title">Simulazione Polizza Auto</div>
+                <div class="activity-time">21 Aprile 2025, 15:42</div>
+              </div>
+              <div class="activity-value">€385.50</div>
+            </li>
+            <li class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+              <div class="activity-details">
+                <div class="activity-title">Confronto tra Preventivi</div>
+                <div class="activity-time">18 Aprile 2025, 10:15</div>
+              </div>
+              <div class="activity-value">-€82.00</div>
+            </li>
+            <li class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <div class="activity-details">
+                <div class="activity-title">Simulazione Polizza Casa</div>
+                <div class="activity-time">15 Aprile 2025, 09:30</div>
+              </div>
+              <div class="activity-value">€292.75</div>
+            </li>
+            <li class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="activity-details">
+                <div class="activity-title">Simulazione Polizza Vita</div>
+                <div class="activity-time">10 Aprile 2025, 14:22</div>
+              </div>
+              <div class="activity-value">€520.00</div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="insights">
+          <div class="insight-card">
+            <h3><i class="fas fa-lightbulb"></i> Opportunità di Risparmio</h3>
+            <div class="insight-content">
+              <p>
+                In base alle tue simulazioni, ecco alcune opportunità per
+                ottimizzare i costi:
+              </p>
+              <ul>
+                <li>
+                  Aumentare gli anni senza sinistri potrebbe ridurre il premio
+                  fino al 25%
+                </li>
+                <li>
+                  Le polizze Casa risultano più convenienti rispetto alle Auto
+                  con valori simili
+                </li>
+                <li>
+                  Valutare diversi livelli di copertura per trovare il
+                  compromesso ideale
+                </li>
+              </ul>
+              <p>
+                Utilizza la funzione "Confronta" per esplorare queste opzioni in
+                dettaglio.
+              </p>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <h3><i class="fas fa-chart-line"></i> Trend Osservati</h3>
+            <div class="insight-content">
+              <p>Dalle tue recenti attività abbiamo notato:</p>
+              <ul>
+                <li>
+                  Un maggiore interesse verso le polizze Auto rispetto alle
+                  altre tipologie
+                </li>
+                <li>Valori assicurati in aumento (+15% nell'ultimo mese)</li>
+                <li>
+                  Preferenza per coperture complete (70% delle simulazioni)
+                </li>
+              </ul>
+              <p>
+                Questi trend suggeriscono un'attenzione crescente alla
+                protezione completa.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="actions">
+          <a href="polizza.html" class="action-button">
+            <i class="fas fa-calculator"></i> Nuova Simulazione
+          </a>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>
+          <strong>Reale ITES SRL</strong><br />
+          Sede Legale: Corso Giuseppe Siccardi 13, 10122 Torino (Italia)<br />
+          Tel. +39 011 4311111 - Fax +39 011 4350966<br />
+          pec: realeites@pec.realeites.com
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

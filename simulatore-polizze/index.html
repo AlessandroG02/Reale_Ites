@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pagina di login per il simulatore polizze Reale ITES"
+    />
+    <title>Reale ITES - Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+    <!-- simboli -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link
+      rel="icon"
+      href="https://www.theofficialboard.fr/img/twitterCompanyBigImages/83350.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Reale ITES</h1>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img
+            src="https://www.theofficialboard.fr/img/twitterCompanyBigImages/83350.png"
+            alt="Logo Reale ITES"
+          />
+        </button>
+        <div class="dropdown-content">
+          <a
+            href="tel:800320320"
+            onmouseover="this.innerHTML='<i class=\'fas fa-phone\'></i> 800 320 320';"
+            onmouseout="this.innerHTML='<i class=\'fas fa-headset\'></i> Servizio Clienti';"
+            ><i class="fas fa-headset"></i> Servizio Clienti</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="login-container">
+        <h2><i class="fas fa-lock"></i> Accedi</h2>
+        <form id="form-login">
+          <label for="username">
+            <i class="fas fa-user"></i> USERNAME:
+            <input
+              type="text"
+              id="username"
+              autocomplete="username"
+              placeholder="Inserisci il tuo username"
+              required
+            />
+          </label>
+
+          <label for="password">
+            <i class="fas fa-key"></i> PASSWORD:
+            <input
+              type="password"
+              id="password"
+              autocomplete="current-password"
+              placeholder="Inserisci la tua password"
+              required
+            />
+          </label>
+
+          <button type="submit">
+            <i class="fas fa-sign-in-alt"></i> Accedi
+          </button>
+        </form>
+        <div class="login-info">
+          <p>
+            <i class="fas fa-info-circle"></i> Accedi al simulatore per
+            calcolare il premio della tua polizza Reale ITES
+          </p>
+          <div class="demo-credentials">
+            <p>
+              <small
+                >Credenziali di prova: username: <strong>demo</strong>,
+                password: <strong>demo</strong></small
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <p>
+          <strong>Reale ITES SRL</strong><br />
+          Sede Legale: Corso Giuseppe Siccardi 13, 10122 Torino (Italia)<br />
+          Tel. +39 011 4311111 - Fax +39 011 4350966<br />
+          pec: realeites@pec.realeites.com
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
