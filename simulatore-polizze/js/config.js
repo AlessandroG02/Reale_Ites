@@ -7,9 +7,9 @@ const RealeConfig = {
     BASE_RATE: 0.05
   };
   
-  // auth.js
+  
   const RealeAuth = (function() {
-    // Dati privati del modulo
+    
     const users = {
       "alessandro": "1234",
       "admin": "admin",
