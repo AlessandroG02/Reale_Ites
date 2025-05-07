@@ -1,3 +1,4 @@
+
 #risultato {
   background-color: var(--primary-color);
   color: var(--text-light);
@@ -25,6 +26,7 @@
   list-style-type: disc;
   margin-left: 20px;
 }
+
 
 #storico {
   margin-top: 2rem;
@@ -55,6 +57,7 @@
 #storico li:last-child {
   border-bottom: none;
 }
+
 
 .item-actions {
   display: flex;
@@ -88,6 +91,7 @@
   background-color: var(--danger-hover);
 }
 
+
 #pulisci-storico {
   background-color: var(--danger-color);
   color: var(--text-light);
@@ -111,6 +115,7 @@
   background-color: var(--success-hover);
 }
 
+
 .json-download-container {
   text-align: center;
   margin-top: 20px;
@@ -127,6 +132,7 @@
 #btn-scarica-json:hover {
   background-color: var(--info-hover);
 }
+
 
 @media (max-width: 768px) {
   #storico,
