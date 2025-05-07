@@ -17,15 +17,10 @@ const RealeUI = {
     const risultatoDiv = document.getElementById("risultato");
     if (!risultatoDiv) return;
     
-  
-    const sinistriText = tipo === "auto" ? 
-      `Anni senza sinistri: ${sinistri}, ` : 
-      "";
-    
     risultatoDiv.innerHTML = `
       <h3>Risultato Simulazione</h3>
       <p>Tipo: ${tipo}, Età: ${eta}, Valore: €${valore.toFixed(2)}</p>
-      <p>${sinistriText}Copertura: ${copertura}</p>
+      <p>Anni senza sinistri: ${sinistri}, Copertura: ${copertura}</p>
       <p><strong>Premio: €${premio.toFixed(2)}</strong></p>
       <button id="mostra-dettagli">Mostra dettagli calcolo</button>
     `;
@@ -61,14 +56,9 @@ const RealeUI = {
     
     storico.forEach((item, index) => {
       const li = document.createElement("li");
-      
-      const sinistriText = item.tipo === "auto" ? 
-        `Anni senza sinistri: ${item.sinistri}, ` : 
-        "";
-      
       li.innerHTML = `
         <strong>${index + 1}. ${item.data}</strong><br>
-        Tipo: ${item.tipo}, Età: ${item.eta}, Valore: €${item.valore.toFixed(2)}, ${sinistriText}Premio: €${item.premio.toFixed(2)}
+        Tipo: ${item.tipo}, Età: ${item.eta}, Valore: €${item.valore.toFixed(2)}, Premio: €${item.premio.toFixed(2)}
         <div class="item-actions">
           <button class="btn-dettaglio" data-index="${index}">Dettagli</button>
           <button class="btn-elimina" data-index="${index}">Elimina</button>
@@ -99,11 +89,6 @@ const RealeUI = {
     
     const item = storico[index];
     
-    
-    const sinistriHTML = item.tipo === "auto" ? 
-      `<p><strong>Anni senza sinistri:</strong> ${item.sinistri}</p>` : 
-      "";
-    
     const dettaglioHTML = `
       <div class="modal" id="modal-dettaglio">
         <div class="modal-content">
@@ -113,14 +98,16 @@ const RealeUI = {
           <p><strong>Tipo polizza:</strong> ${item.tipo}</p>
           <p><strong>Età:</strong> ${item.eta}</p>
           <p><strong>Valore assicurato:</strong> €${item.valore.toFixed(2)}</p>
-          ${sinistriHTML}
+          <p><strong>Anni senza sinistri:</strong> ${item.sinistri}</p>
           <p><strong>Copertura:</strong> ${item.copertura}</p>
           <p><strong>Premio calcolato:</strong> €${item.premio.toFixed(2)}</p>
           <h4>Dettagli del calcolo:</h4>
           <ul>
             ${item.dettagli.map(d => `<li>${d}</li>`).join("")}
           </ul>
-          <button id="btn-pdf-singolo">Genera PDF</button>
+          <div class="json-download-container">
+            <button id="btn-scarica-json">Scarica JSON</button>
+          </div>
         </div>
       </div>
     `;
@@ -135,9 +122,34 @@ const RealeUI = {
       document.getElementById("modal-dettaglio").remove();
     });
     
-    document.getElementById("btn-pdf-singolo").addEventListener("click", function() {
-      alert("Funzionalità di generazione PDF in fase di sviluppo");
+    document.getElementById("btn-scarica-json").addEventListener("click", function() {
+      RealeUI.downloadSimulationAsJson(item);
     });
+  },
+  
+  downloadSimulationAsJson: function(simulazione) {
+    
+    const simulazioneJson = JSON.stringify(simulazione, null, 2);
+    
+    
+    const blob = new Blob([simulazioneJson], { type: 'application/json' });
+    
+   
+    const url = URL.createObjectURL(blob);
+    
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `simulazione_${simulazione.tipo}_${new Date().toISOString().slice(0,10)}.json`;
+    
+    
+    document.body.appendChild(a);
+    a.click();
+
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
   },
   
   confirmDeleteSimulation: function(index) {
