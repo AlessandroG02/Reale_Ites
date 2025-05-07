@@ -36,6 +36,7 @@ const RealeUI = {
       `;
       risultatoDiv.appendChild(dettagliDiv);
       this.style.display = "none";
+      
     });
   },
   

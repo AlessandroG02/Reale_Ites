@@ -79,6 +79,7 @@ form {
   max-width: 500px;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  
 }
 
 .close-modal {
@@ -92,7 +93,10 @@ form {
 .close-modal:hover {
   color: var(--secondary-color);
 }
-
+.modal-content ul {
+  padding-left: 40px; /* Aumenta questo valore per spostare i punti più a destra */
+  margin-left: 20px; /* Opzionale: aggiunge ulteriore spazio a sinistra */
+}
 
 @media (max-width: 768px) {
   form {
