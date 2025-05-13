@@ -1,4 +1,21 @@
+/**
+ * POLIZZE.CSS
+ * Questo file gestisce gli stili specifici per la sezione polizze:
+ * - Visualizzazione dei risultati del calcolo
+ * - Dettagli del calcolo
+ * - Storico delle simulazioni
+ * - Azioni sulle simulazioni (dettagli, eliminazione)
+ * - Pulsanti per la gestione storico
+ * - Download JSON
+ *
+ * Include stili sia per la visualizzazione dei dati che per
+ * l'interazione con le simulazioni salvate.
+ */
 
+/**
+ * RISULTATO SIMULAZIONE
+ * Container per mostrare il risultato del calcolo premio
+ */
 #risultato {
   background-color: var(--primary-color);
   color: var(--text-light);
@@ -10,11 +27,15 @@
   text-align: center;
 }
 
+/**
+ * DETTAGLI CALCOLO
+ * Sezione espandibile che mostra i dettagli di come è stato calcolato il premio
+ */
 .dettagli-calcolo {
   margin-top: 15px;
   text-align: left;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Sfondo semi-trasparente */
   border-radius: var(--border-radius);
 }
 
@@ -23,11 +44,15 @@
 }
 
 .dettagli-calcolo ul {
-  list-style-type: disc;
-  margin-left: 20px;
+  list-style-type: disc; /* Elenco puntato */
+  margin-left: 20px; /* Indentazione della lista */
 }
 
 
+/**
+ * STORICO SIMULAZIONI
+ * Sezione che mostra la lista delle simulazioni precedenti
+ */
 #storico {
   margin-top: 2rem;
   max-width: 400px;
@@ -39,6 +64,10 @@
   margin-bottom: 1rem;
 }
 
+/**
+ * LISTA SIMULAZIONI
+ * Stile per la lista delle simulazioni salvate
+ */
 #storico ul {
   list-style-type: none;
   padding: 1rem;
@@ -48,31 +77,51 @@
   margin-bottom: 20px;
 }
 
+/**
+ * ELEMENTO SIMULAZIONE
+ * Stile per ogni singola simulazione nella lista dello storico
+ */
 #storico li {
   color: var(--text-light);
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/**
+ * ULTIMO ELEMENTO SIMULAZIONE
+ * Rimuove il bordo inferiore dall'ultimo elemento
+ */
 #storico li:last-child {
   border-bottom: none;
 }
 
 
+/**
+ * AZIONI ELEMENTO STORICO
+ * Container per i pulsanti di azione su una simulazione
+ */
 .item-actions {
   display: flex;
   gap: 10px;
   margin-top: 8px;
 }
 
+/**
+ * PULSANTI AZIONE
+ * Stile comune per i pulsanti di dettaglio ed eliminazione
+ */
 .btn-dettaglio,
 .btn-elimina {
   padding: 5px 10px;
   font-size: 0.8rem;
   border-radius: 5px;
-  flex: 1;
+  flex: 1; /* Distribuisce lo spazio equamente */
 }
 
+/**
+ * PULSANTE DETTAGLIO
+ * Stile specifico per il pulsante di visualizzazione dettagli
+ */
 .btn-dettaglio {
   background-color: var(--success-color);
   color: var(--text-light);
@@ -82,6 +131,10 @@
   background-color: var(--success-hover);
 }
 
+/**
+ * PULSANTE ELIMINA
+ * Stile specifico per il pulsante di eliminazione
+ */
 .btn-elimina {
   background-color: var(--danger-color);
   color: var(--text-light);
@@ -92,6 +145,10 @@
 }
 
 
+/**
+ * PULSANTE PULIZIA STORICO
+ * Stile per il pulsante che elimina tutto lo storico
+ */
 #pulisci-storico {
   background-color: var(--danger-color);
   color: var(--text-light);
@@ -106,6 +163,14 @@
   background-color: var(--danger-hover);
 }
 
+/**
+ * PULSANTE ESPORTAZIONE STORICO
+ * Stile per il pulsante che esporta tutto lo storico
+ */
+/**
+ * PULSANTE ESPORTAZIONE STORICO
+ * Stile per il pulsante che esporta tutto lo storico in JSON
+ */
 #esporta-storico {
   background-color: var(--success-color);
   color: var(--text-light);
@@ -116,15 +181,23 @@
 }
 
 
+/**
+ * CONTAINER DOWNLOAD JSON
+ * Contenitore per il pulsante di download all'interno della modale
+ */
 .json-download-container {
   text-align: center;
   margin-top: 20px;
 }
 
+/**
+ * PULSANTE DOWNLOAD JSON
+ * Stile per il pulsante di download del JSON di una singola simulazione
+ */
 #btn-scarica-json {
   background-color: var(--info-color);
   color: var(--text-light);
-  width: 50%;
+  width: 50%; /* Occupa metà della larghezza disponibile */
   margin: 0 auto;
   display: inline-block;
 }
@@ -134,13 +207,18 @@
 }
 
 
+/**
+ * MEDIA QUERIES
+ * Adattamento layout per schermi di diverse dimensioni
+ */
 @media (max-width: 768px) {
+  /* Tablet e dispositivi medi */
   #storico,
   #risultato {
-    max-width: 95%;
+    max-width: 95%; /* Occupa quasi tutto lo spazio disponibile */
   }
   
   #btn-scarica-json {
-    width: 80%;
+    width: 80%; /* Aumenta la larghezza su schermi piccoli per facilitare il tap */
   }
 }

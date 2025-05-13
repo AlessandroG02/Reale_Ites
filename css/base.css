@@ -1,54 +1,83 @@
-
+/**
+ * SISTEMA DI TEMA E VARIABILI GLOBALI
+ * Questo file definisce:
+ * - Variabili CSS globali per garantire consistenza visiva nell'applicazione
+ * - Reset base per normalizzare gli stili tra browser diversi
+ * - Stili base per elementi comuni (body, headings, buttons)
+ * - Classi di utilità riutilizzabili
+ */
 :root {
-  --primary-color: #003366;
-  --secondary-color: #87b2dd;
-  --text-light: #ffffff;
-  --text-dark: #333333;
-  --success-color: #4caf50;
-  --success-hover: #45a049;
-  --danger-color: #e74c3c;
-  --danger-hover: #c0392b;
-  --info-color: #3498db;
-  --info-hover: #2980b9;
-  --border-radius: 10px;
-  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
-  --card-bg-hover: rgba(255, 255, 255, 0.1);
+  /* Colori principali del tema */
+  --primary-color: #003366;    /* Blu scuro per elementi principali e background */
+  --secondary-color: #87b2dd;  /* Blu chiaro per elementi interattivi e accenti */
+  --text-light: #ffffff;       /* Testo su sfondo scuro */
+  --text-dark: #333333;        /* Testo su sfondo chiaro */
+  
+  /* Colori semantici per stati e azioni */
+  --success-color: #4caf50;    /* Verde per azioni positive e conferme */
+  --success-hover: #45a049;    /* Verde scuro per hover su elementi success */
+  --danger-color: #e74c3c;     /* Rosso per azioni distruttive e avvisi */
+  --danger-hover: #c0392b;     /* Rosso scuro per hover su elementi danger */
+  --info-color: #3498db;       /* Blu per azioni informative */
+  --info-hover: #2980b9;       /* Blu scuro per hover su elementi info */
+  
+  /* Proprietà di design comuni */
+  --border-radius: 10px;       /* Arrotondamento standard degli angoli */
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Ombra standard per elementi in rilievo */
+  --transition: all 0.3s ease; /* Animazione standard per transizioni fluide */
+  --card-bg-hover: rgba(255, 255, 255, 0.1); /* Sfondo per hover su card scure */
 }
 
 
+/**
+ * RESET CSS E IMPOSTAZIONI DI BASE
+ * Normalizza gli stili tra browser diversi e imposta il box-sizing corretto
+ */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding e bordi nella larghezza/altezza degli elementi */
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
 }
 
+/**
+ * LAYOUT PRINCIPALE PAGINA
+ * Imposta il layout base con flexbox per garantire che il footer rimanga in fondo
+ * anche quando il contenuto è poco
+ */
 body {
-  min-height: 100vh;
+  min-height: 100vh; /* Altezza minima 100% della viewport */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Organizza gli elementi in colonna */
   background-image: url("https://www.ppan.it/gallerie/10153.jpg");
   background-size: cover;
   background-position: center;
-  padding-top: 80px;
-  background-color: #f8f9fa;
+  padding-top: 80px; /* Spazio per la navbar fissa in alto */
+  background-color: #f8f9fa; /* Fallback se l'immagine non carica */
   font-size: 16px;
 }
 
+/**
+ * CONTENITORE PRINCIPALE
+ * Contiene il contenuto principale e lo centra nella pagina
+ */
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   width: 100%;
-  flex: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-bottom: 120px;
+  flex: 1; /* Fa espandere il main per occupare tutto lo spazio disponibile */
+  max-width: 1200px; /* Larghezza massima per schermi grandi */
+  margin: 0 auto; /* Centra il contenitore */
+  padding-bottom: 120px; /* Spazio extra in fondo per evitare che il footer nasconda contenuto */
 }
 
 
+/**
+ * STILI TIPOGRAFIA
+ * Definisce gli stili per i titoli e il testo
+ */
 h2 {
   color: var(--text-light);
   text-align: center;
@@ -65,11 +94,19 @@ h3 {
 }
 
 
+/**
+ * STILI IMMAGINI
+ * Stili per le immagini, in particolare per il logo circolare
+ */
 img {
   height: 60px;
-  border-radius: 50%;
+  border-radius: 50%; /* Rende le immagini circolari */
 }
 
+/**
+ * STILI FORM
+ * Definisce l'aspetto di campi input, select e label
+ */
 input,
 select {
   width: 100%;
@@ -88,6 +125,10 @@ label {
 }
 
 
+/**
+ * STILI PULSANTI
+ * Definisce l'aspetto base di tutti i pulsanti e link-button
+ */
 .btn, button {
   background-color: var(--text-light);
   color: var(--primary-color);
@@ -95,7 +136,7 @@ label {
   padding: 10px 20px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition); /* Animazione fluida al passaggio del mouse */
   font-size: 1rem;
   margin-top: 10px;
   text-decoration: none;
@@ -107,10 +148,14 @@ label {
 }
 
 button[type="submit"] {
-  margin-top: 15px;
+  margin-top: 15px; /* Aggiunge spazio sopra i pulsanti di invio form */
 }
 
 
+/**
+ * CLASSI UTILITY
+ * Classi riutilizzabili per modificare velocemente layout e aspetto
+ */
 .text-center {
   text-align: center;
 }
@@ -128,20 +173,26 @@ button[type="submit"] {
 }
 
 
+/**
+ * MEDIA QUERIES
+ * Regole responsive per adattare il layout a diverse dimensioni di schermo
+ */
 @media (max-width: 768px) {
+  /* Tablet e dispositivi medi */
   main {
-    padding: 1rem;
+    padding: 1rem; /* Riduce il padding sui lati per massimizzare lo spazio */
   }
 }
 
 @media (max-width: 480px) {
+  /* Smartphone e dispositivi piccoli */
   body {
-    padding-top: 70px;
+    padding-top: 70px; /* Riduce lo spazio per la navbar */
   }
   
   input,
   select,
   button {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Riduce leggermente la dimensione del testo */
   }
 }

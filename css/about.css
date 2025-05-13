@@ -1,23 +1,55 @@
+/**
+ * ABOUT.CSS
+ * Questo file gestisce gli stili specifici per la pagina dei riconoscimenti:
+ * - Contenuto informativo aziendale 
+ * - Pulsanti social media
+ * - Varianti per diversi social
+ * - Effetti hover e animazioni
+ *
+ * La pagina utilizza un layout semplice ma elegante con pulsanti social
+ * animati per migliorare l'esperienza utente.
+ */
 
+/**
+ * CONTENUTO PRINCIPALE
+ * Stile per il contenitore del testo informativo
+ */
 .about-content {
   padding: 20px;
-  line-height: 1.6;
+  line-height: 1.6; /* Aumenta l'interlinea per migliorare la leggibilità */
   color: var(--text-light);
 }
 
+/**
+ * TITOLI
+ * Stile per i titoli nella sezione about
+ */
 .about-content h2 {
   margin-bottom: 20px;
 }
 
+/**
+ * PARAGRAFI
+ * Stile per i paragrafi di testo informativo
+ */
 .about-content p {
   margin-bottom: 15px;
 }
 
+/**
+ * TESTO ENFATIZZATO
+ * Stile per il testo in grassetto
+ */
 .about-content strong {
   font-weight: 600;
 }
 
 
+/**
+ * PULSANTI SOCIAL MEDIA
+ * Stile base per i pulsanti social media
+ * Utilizza flexbox per allineare l'icona e il testo
+ */
 .social-button {
   display: flex;
   align-items: center;
@@ -29,37 +61,57 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s; /* Transizione fluida per hover */
   width: 200px;
   height: 100px;
   text-align: center;
 }
 
+/**
+ * ICONE SOCIAL MEDIA
+ * Dimensione delle icone Font Awesome nei pulsanti social
+ */
 .social-button i {
   font-size: 18px;
 }
 
+/**
+ * EFFETTO HOVER PULSANTI
+ * Animazione di sollevamento al passaggio del mouse
+ */
 .social-button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px); /* Sposta leggermente verso l'alto */
 }
 
 
+/**
+ * PULSANTE FACEBOOK
+ * Stile specifico per il pulsante Facebook
+ */
 .facebook {
-  background-color: #3b5998;
+  background-color: #3b5998; /* Blu ufficiale di Facebook */
 }
 
 .facebook:hover {
-  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.5);
+  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.5); /* Ombra blu al passaggio */
 }
 
+/**
+ * PULSANTE LINKEDIN
+ * Stile specifico per il pulsante LinkedIn
+ */
 .linkedin {
-  background-color: #0077b5;
+  background-color: #0077b5; /* Blu ufficiale di LinkedIn */
 }
 
 .linkedin:hover {
-  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.5); /* Ombra blu al passaggio */
 }
 
+/**
+ * PULSANTE INSTAGRAM
+ * Stile specifico per il pulsante Instagram con gradiente multicolore
+ */
 .instagram {
   background: radial-gradient(
     circle at 30% 107%,
@@ -68,18 +120,21 @@
     #fd5949 45%,
     #d6249f 60%,
     #285aeb 90%
-  );
+  ); /* Replica il gradiente ufficiale di Instagram */
 }
 
 .instagram:hover {
-  box-shadow: 0 4px 12px rgba(253, 89, 73, 0.5);
+  box-shadow: 0 4px 12px rgba(253, 89, 73, 0.5); /* Ombra rosa-arancione al passaggio */
 }
 
 
+/**
+ * MEDIA QUERIES
+ * Adattamento per dispositivi mobili
+ */
 @media (max-width: 480px) {
+  /* Smartphone e dispositivi piccoli */
   .social-button {
-    width: 90%;
+    width: 90%; /* Occupa quasi tutta la larghezza disponibile */
   }
 }
-
-

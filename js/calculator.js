@@ -103,11 +103,24 @@ const RealeCalculator = {
   toggleSinistriField: function() {
     const tipo = document.getElementById("tipo-polizza").value;
     const sinistriContainer = document.querySelector('label[for="sinistri"]');
+    const sinistriInput = document.getElementById("sinistri");
+    
+    // Protezione contro elementi non trovati
+    if (!sinistriContainer) return;
     
     if (tipo === "auto") {
       sinistriContainer.style.display = "block";
+      // Se l'input esiste, gestisci l'attributo required
+      if (sinistriInput) {
+        sinistriInput.required = true;
+      }
     } else {
       sinistriContainer.style.display = "none";
+      // Se l'input esiste, rimuovi required e imposta un valore
+      if (sinistriInput) {
+        sinistriInput.required = false;
+        sinistriInput.value = "0";
+      }
     }
   },
   
