@@ -1,4 +1,16 @@
 const RealeCalculator = {
+  /**
+   * Calcola il premio assicurativo basato sui parametri forniti dall'utente
+   * Applica diverse maggiorazioni o sconti in base a: tipo polizza, età, valore,
+   * anni senza sinistri e livello di copertura
+   * 
+   * @param {string} tipo - Tipo di polizza (auto, casa, vita)
+   * @param {number} eta - Età dell'assicurato
+   * @param {number} valore - Valore assicurato in euro
+   * @param {number} sinistri - Anni senza sinistri (rilevante solo per auto)
+   * @param {string} copertura - Livello di copertura (base o completa)
+   * @returns {Object} - Oggetto contenente il premio calcolato e i dettagli del calcolo
+   */
   calculatePremium: function(tipo, eta, valore, sinistri, copertura) {
     let moltiplicatore = 1.0;
     const dettagli = [`Premio base: ${(valore * RealeConfig.BASE_RATE).toFixed(2)}€ (5% del valore assicurato)`];
@@ -52,6 +64,13 @@ const RealeCalculator = {
     return { premio, dettagli };
   },
   
+  /**
+   * Valida i dati inseriti nel form prima di procedere con il calcolo
+   * Controlla che età, valore e anni senza sinistri rientrino nei range consentiti
+   * Mostra messaggi di errore specifici in caso di validazione fallita
+   * 
+   * @returns {boolean} - true se la validazione ha successo, false altrimenti
+   */
   validateForm: function() {
     const tipo = document.getElementById("tipo-polizza").value;
     const eta = parseInt(document.getElementById("eta").value);
@@ -76,7 +95,11 @@ const RealeCalculator = {
     return true;
   },
   
-  
+  /**
+   * Mostra o nasconde il campo "anni senza sinistri" in base al tipo di polizza
+   * Il campo è visibile solo per le polizze auto, nascosto per casa e vita
+   * Manipola direttamente il DOM per modificare la visualizzazione del campo
+   */
   toggleSinistriField: function() {
     const tipo = document.getElementById("tipo-polizza").value;
     const sinistriContainer = document.querySelector('label[for="sinistri"]');
@@ -88,32 +111,45 @@ const RealeCalculator = {
     }
   },
   
+  /**
+   * Inizializza il form per il calcolo della polizza
+   * Configura gli event listener per la gestione del submit e per il cambio del tipo polizza
+   * Esegue la validazione, calcola il premio e salva la simulazione quando il form viene inviato
+   * Aggiorna l'interfaccia utente con i risultati e lo storico delle simulazioni
+   */
   setupPolicyForm: function() {
     const insuranceForm = document.getElementById("form-polizza");
     if (!insuranceForm) return;
     
-    
+    // Inizializza lo stato del campo sinistri all'avvio
     this.toggleSinistriField();
     
+    // Aggiunge event listener per aggiornare il campo sinistri quando cambia il tipo di polizza
     document.getElementById("tipo-polizza").addEventListener("change", () => {
       this.toggleSinistriField();
     });
     
+    // Aggiunge event listener per gestire il submit del form
     insuranceForm.addEventListener("submit", (e) => {
       e.preventDefault();
       
+      // Interrompe l'esecuzione se la validazione fallisce
       if (!this.validateForm()) return;
       
+      // Raccoglie i dati dal form
       const tipo = document.getElementById("tipo-polizza").value;
       const eta = parseInt(document.getElementById("eta").value);
       const valore = parseFloat(document.getElementById("valore").value);
       const sinistri = tipo === "auto" ? parseInt(document.getElementById("sinistri").value) : 0;
       const copertura = document.getElementById("copertura").value;
       
+      // Calcola il premio assicurativo
       const { premio, dettagli } = this.calculatePremium(tipo, eta, valore, sinistri, copertura);
       
+      // Visualizza i risultati nell'interfaccia
       RealeUI.displayResults(tipo, eta, valore, sinistri, copertura, premio, dettagli);
       
+      // Crea l'oggetto simulazione con tutti i dati
       const simulazioneObj = {
         tipo,
         eta,
@@ -125,6 +161,7 @@ const RealeCalculator = {
         data: new Date().toLocaleString()
       };
       
+      // Salva la simulazione e aggiorna lo storico
       RealeStorage.saveSimulation(simulazioneObj);
       RealeUI.displayHistory();
     });
