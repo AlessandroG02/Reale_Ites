@@ -11,23 +11,14 @@ const RealeConfig = {
         LOGIN: '/auth/login',
         REFRESH: '/auth/refresh',
         ME: '/auth/me'
-    },
-    // Modalità di autenticazione: 'local' o 'api'
-    AUTH_MODE: 'api' // Usa DummyJSON API
+    }
 };
 
 const RealeAuth = (function() {
     
-    // Utenti locali (fallback)
-    const localUsers = {
-        "alessandro": "1234",
-        "admin": "admin", 
-        "demo": "demo"
-    };
-    
     return {
         // Login con DummyJSON API
-        loginWithAPI: async function(username, password) {
+        login: async function(username, password) {
             try {
                 // Mostra indicatore di caricamento
                 RealeUI.showLoading('Autenticazione in corso...');
@@ -74,38 +65,8 @@ const RealeAuth = (function() {
             }
         },
         
-        // Login locale (fallback)
-        loginLocal: function(username, password) {
-            if (localUsers[username] && localUsers[username] === password) {
-                sessionStorage.setItem("utenteCorrente", username);
-                sessionStorage.setItem("authToken", "local_token_" + username);
-                return {
-                    success: true,
-                    user: { username: username },
-                    token: "local_token_" + username
-                };
-            }
-            return {
-                success: false,
-                error: "Credenziali non valide"
-            };
-        },
-        
-        // Metodo principale di login
-        login: async function(username, password) {
-            if (RealeConfig.AUTH_MODE === 'api') {
-                return await this.loginWithAPI(username, password);
-            } else {
-                return this.loginLocal(username, password);
-            }
-        },
-        
         // Refresh del token usando DummyJSON
         refreshToken: async function() {
-            if (RealeConfig.AUTH_MODE !== 'api') {
-                return true; // Non serve refresh per modalità locale
-            }
-            
             const refreshToken = sessionStorage.getItem("refreshToken");
             if (!refreshToken) return false;
             
@@ -149,10 +110,6 @@ const RealeAuth = (function() {
         
         // Verifica la validità del token con l'API
         verifyToken: async function() {
-            if (RealeConfig.AUTH_MODE === 'local') {
-                return this.isAuthenticated();
-            }
-            
             const token = sessionStorage.getItem("authToken");
             if (!token) return false;
             
